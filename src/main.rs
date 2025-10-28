@@ -1,6 +1,8 @@
 mod config;
-mod note;
+// mod note; // Modificato
+mod midi_loader;
 mod state;
+mod vertex;
 
 use pollster::block_on;
 use state::State;

@@ -1,14 +1,5 @@
-// note.rs
+// vertex.rs
 use bytemuck::{Pod, Zeroable};
-
-// Rappresenta una singola nota
-pub struct Note {
-    pub x: f32,
-    pub y: f32,
-    pub width: f32,
-    pub height: f32,
-    pub color: [f32; 3],
-}
 
 // Vertice usato dalla GPU
 #[repr(C)]
@@ -31,7 +22,7 @@ impl Vertex {
                     format: wgpu::VertexFormat::Float32x2,
                 },
                 wgpu::VertexAttribute {
-                    offset: 8,
+                    offset: std::mem::size_of::<[f32; 2]>() as u64,
                     shader_location: 1,
                     format: wgpu::VertexFormat::Float32x3,
                 },
